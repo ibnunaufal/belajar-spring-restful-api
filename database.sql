@@ -22,5 +22,18 @@ CREATE TABLE contacts
     phone VARCHAR(100),
     email VARCHAR(100),
     PRIMARY KEY (id)
-    FOREIGN KEY fk_user_contacts (username) REFERENCES users(username)
+    FOREIGN KEY fk_users_contacts (username) REFERENCES users(username)
+) ENGINE InnoDB;
+
+CREATE TABLE addresses
+(
+    id VARCHAR(100) NOT NULL,
+    contact_id VARCHAR(100) NOT NULL,
+    street VARCHAR(200),
+    city VARCHAR(100),
+    province VARCHAR(100),
+    country VARCHAR(100) NOT NULL,
+    postal_code VARCHAR(100),
+    PRIMARY KEY (id),
+    FOREIGN KEY fk_contacts_addresses (contact_id) REFERENCES contacts(id)
 ) ENGINE InnoDB;
