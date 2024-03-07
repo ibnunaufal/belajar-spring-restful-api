@@ -1,14 +1,13 @@
 package com.bob.belajarspringrestfulapi.entity;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,4 +24,7 @@ public class User {
     private String token;
     @Column(name = "token_expired_at")
     private Long tokenExpiredAt;
+
+    @OneToMany
+    private List<Contact> contacts;
 }
